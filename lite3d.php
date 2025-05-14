@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Lite3d Viewer
- * Plugin URI: https://github.com/alipultra/lite3d
+ * Plugin URI: https://github.com/alipultra/lite3d-viewer
  * Description: Lite3d Viewer
  * Version: 0.1
  * Text Domain: lite3d-viewer
@@ -27,6 +27,7 @@ define('LITE3D_ASSETS_URL', LITE3D_URL . '/public/assets/');
 define('LITE3D_LIB', LITE3D_PATH . 'includes/');
 define('LITE3D_ADMIN', LITE3D_PATH . 'admin/');
 
+define('LITE3D_TEXT_DOMAIN', 'lite3d-viewer');
 define('LITE3D_MANAGEMENT_PERMISSION', 'manage_options');
 define('LITE3D_MAIN_MENU_SLUG', 'lite3d_overview');
 define('LITE3D_MENU_ICON', 'dashicons-lock');
