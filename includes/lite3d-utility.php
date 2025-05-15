@@ -12,18 +12,19 @@ class LITE3D_Utility
     if (isset($post['hash'])) {
       return sprintf(
         '[lite3d-viewer id="%1$s"]',
-        self::hash($post['hash'])
+        $post['hash']
       );
     }
   }
 
   public static function generate_hash($post_id) {
-    return sha1( implode( '|', array(
+    $hash = sha1( implode( '|', array(
       get_current_user_id(),
       $post_id,
       time(),
       home_url(),
     ) ) );
+    return self::hash($hash);
   }
 
   public static function lite3d_format_atts( $atts )
