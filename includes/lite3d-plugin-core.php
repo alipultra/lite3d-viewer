@@ -13,6 +13,7 @@ if (!defined('WPINC')) {
  * @link      http://alipultra.com
  */
 
+require_once(LITE3D_LIB . 'lite3d-utility.php');
 require_once(LITE3D_LIB . 'lite3d-scripts.php');
 require_once(LITE3D_LIB . 'lite3d-post-type.php');
 require_once(LITE3D_LIB . 'lite3d-shortcode.php');
