@@ -13,7 +13,7 @@ function lite3d_about_menu()
 ?>
   <div class="wrap">
       <h1>
-        <?php esc_html_e('Lite 3D About', 'lite3d-viewer'); ?>
+        <?php esc_html_e('Lite 3D Viewer - About', 'lite3d-viewer'); ?>
       </h1>
 
       <div id="poststuff">
