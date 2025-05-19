@@ -27,7 +27,7 @@ class LITE3D_Utility
     return self::hash($hash);
   }
 
-  public static function lite3d_format_atts( $atts )
+  public static function format_atts( $atts )
   {
     $atts_filtered = array();
   
@@ -72,5 +72,42 @@ class LITE3D_Utility
     }
   
     return trim( $output );
+  }
+
+  /**
+ * Builds an HTML anchor element.
+ *
+ * @param string $url Link URL.
+ * @param string $anchor_text Anchor label text.
+ * @param string|array $atts Optional. HTML attributes.
+ * @return string Formatted anchor element.
+ */
+  public static function link( $url, $anchor_text, $atts = '' ) {
+    $atts = wp_parse_args( $atts, array(
+      'id' => null,
+      'class' => null,
+    ) );
+
+    $atts = array_merge( $atts, array(
+      'href' => esc_url( $url ),
+    ) );
+
+    return sprintf(
+      '<a %1$s>%2$s</a>',
+      self::format_atts( $atts ),
+      esc_html( $anchor_text )
+    );
+  }
+
+  public static function default_meta() {
+    return array(
+      'lite3d_width' => array('width' => 100, 'unit' => '%'),
+      'lite3d_height' => array('height' => 100, 'unit' => 'px'),
+      'post_id' => get_the_ID(),
+      'hash' => self::generate_hash($id),
+      'url' => null,
+      'thumbnail' => null
+    );
+    
   }
 }
