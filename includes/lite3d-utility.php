@@ -98,16 +98,4 @@ class LITE3D_Utility
       esc_html( $anchor_text )
     );
   }
-
-  public static function default_meta() {
-    return array(
-      'lite3d_width' => array('width' => 100, 'unit' => '%'),
-      'lite3d_height' => array('height' => 100, 'unit' => 'px'),
-      'post_id' => get_the_ID(),
-      'hash' => self::generate_hash($id),
-      'url' => null,
-      'thumbnail' => null
-    );
-    
-  }
 }

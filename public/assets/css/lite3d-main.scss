@@ -1,0 +1,180 @@
+span.shortcode {
+	display: block;
+	margin: 2px 0;
+}
+
+span.shortcode.old {
+	background: #777;
+	color: #fff;
+}
+
+span.shortcode input {
+	font-size: 12px;
+	border: none;
+	box-shadow: none;
+	padding: 4px 8px;
+	margin: 0;
+}
+
+span.shortcode input {
+  color: #fff;
+	background: transparent;
+}
+
+.lite3d_column {
+  float: left;
+}
+
+.lite3d-meta-form {
+  padding: 20px;
+
+  input[type=text], textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+
+  select {
+    width: 10%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+
+  input[type=number] {
+    width: 30%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  h4 {
+    margin: 0;
+    color: #23282d;
+  }
+
+  .subtitle-text {
+    font-weight: 400;
+    color: #999;
+  }
+  .desc-text {
+    clear: both;
+    float: left;
+    width: 100%;
+    margin-top: 6px;
+    font-weight: 400;
+    color: #999;
+  }
+
+  .clear {
+    clear: both;
+    display: block;
+    float: none;
+  }
+
+  .image-preview {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    padding: 6px;
+    max-width: 120px;
+    max-height: 120px;
+    min-width: 40px;
+    min-height: 40px;
+    margin-bottom: 5px;
+    text-align: center;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+  }
+  .image-preview i {
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    right: 4px;
+    top: 4px;
+    font-size: 14px;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #dd3333;
+    opacity: 0.75;
+    border-radius: 2px;
+    transition: all .2s;
+  }
+  .image-preview i:hover {
+    opacity: 1;
+  }
+  .image-preview i:focus {
+    box-shadow: none;
+  }
+  .image-preview span {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    height: 100%;
+    width: 100%;
+  }
+  .image-preview img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  input[type=button] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+  }
+  
+  input[type=button]:hover {
+    background-color: #45a049;
+  }
+
+  .col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+  }
+  
+  .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+  }
+
+  .col-flex {
+    display: flex;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=button] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
