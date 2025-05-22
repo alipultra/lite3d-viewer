@@ -221,38 +221,38 @@ class LITE3D_Meta_Box
           <h4 for="lite3d_meta_height">
             <?php esc_html_e('Moving Controls', 'lite3d-viewer'); ?>
           </h4>
-          <div class="subtitle-text">
-            <?php esc_html_e('Use The Moving controls to enable user interaction', 'lite3d-viewer'); ?>
-          </div>
         </div>
-        <div class="col-75 col-flex">
-          <?php
-            $option = '';
-            foreach ( $switch as $key => $value ) {
-              $selected = ( (int) $meta['controls'] === $key ) ? ' selected' : '';
-              $option_atts = array(
-                'value' => $key,
-                'selected' => $selected,
-              );
+        <div class="col-75">
+          <div class="col-flex">
+            <?php
+              $option = '';
+              foreach ( $switch as $key => $value ) {
+                $selected = ( (int) $meta['controls'] === $key ) ? ' selected' : '';
+                $option_atts = array(
+                  'value' => $key,
+                  'selected' => $selected,
+                );
 
-              $option .= sprintf(
-                '<option %1$s>%2$s</option>',
-                LITE3D_Utility::format_atts( $option_atts ),
-                esc_html( $value )
-              );
-            }
+                $option .= sprintf(
+                  '<option %1$s>%2$s</option>',
+                  LITE3D_Utility::format_atts( $option_atts ),
+                  esc_html( $value )
+                );
+              }
 
-            echo sprintf(
-              '<select %1$s>%2$s</select>',
-              LITE3D_Utility::format_atts( 
-                array(
-                  'id' => 'lite3d_meta_controls',
-                  'name' => 'lite3d_meta_controls',
-                ) 
-              ),
-              $option
-            );
-          ?>
+              echo sprintf(
+                '<select %1$s>%2$s</select>',
+                LITE3D_Utility::format_atts( 
+                  array(
+                    'id' => 'lite3d_meta_controls',
+                    'name' => 'lite3d_meta_controls',
+                  ) 
+                ),
+                $option
+              );
+            ?>
+          </div>
+          <div class="desc-text"><?php esc_html_e('Use The Moving controls to enable user interaction', 'lite3d-viewer')?></div>
         </div>
       </div>
       <div class="row">
@@ -260,38 +260,38 @@ class LITE3D_Meta_Box
           <h4 for="lite3d_meta_height">
             <?php esc_html_e('Enable Zoom', 'lite3d-viewer'); ?>
           </h4>
-          <div class="subtitle-text">
-            <?php esc_html_e('Enable or Disable Zooming Behaviour', 'lite3d-viewer'); ?>
-          </div>
         </div>
-        <div class="col-75 col-flex">
-          <?php
-            $option = '';
-            foreach ( $switch as $key => $value ) {
-              $selected = ( (int) $meta['zoom'] === $key ) ? ' selected' : '';
-              $option_atts = array(
-                'value' => $key,
-                'selected' => $selected,
-              );
+        <div class="col-75">
+          <div class="col-flex">
+            <?php
+              $option = '';
+              foreach ( $switch as $key => $value ) {
+                $selected = ( (int) $meta['zoom'] === $key ) ? ' selected' : '';
+                $option_atts = array(
+                  'value' => $key,
+                  'selected' => $selected,
+                );
 
-              $option .= sprintf(
-                '<option %1$s>%2$s</option>',
-                LITE3D_Utility::format_atts( $option_atts ),
-                esc_html( $value )
-              );
-            }
+                $option .= sprintf(
+                  '<option %1$s>%2$s</option>',
+                  LITE3D_Utility::format_atts( $option_atts ),
+                  esc_html( $value )
+                );
+              }
 
-            echo sprintf(
-              '<select %1$s>%2$s</select>',
-              LITE3D_Utility::format_atts( 
-                array(
-                  'id' => 'lite3d_meta_zoom',
-                  'name' => 'lite3d_meta_zoom',
-                ) 
-              ),
-              $option
-            );
-          ?>
+              echo sprintf(
+                '<select %1$s>%2$s</select>',
+                LITE3D_Utility::format_atts( 
+                  array(
+                    'id' => 'lite3d_meta_zoom',
+                    'name' => 'lite3d_meta_zoom',
+                  ) 
+                ),
+                $option
+              );
+            ?>
+          </div>
+          <div class="desc-text"><?php esc_html_e('If you wish to disable zooming behavior please choose No.', 'lite3d-viewer')?></div>
         </div>
       </div>
     </div>
