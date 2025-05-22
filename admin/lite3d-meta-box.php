@@ -18,8 +18,14 @@ class LITE3D_Meta_Box
   public function lite3d_register_meta_boxes() {
     
     add_meta_box( 'lite3d_viewer', __( '3D Settings', 'lite3d-viewer' ), array($this, 'add_meta_box_content'), 'lite3d-viewer' );
+    add_meta_box( 'lite3d_viewer_help', 'Do you need help?', array($this, 'lite3d_viewer_help'), 'lite3d-viewer', 'side', 'low');
   }
 
+  public function lite3d_viewer_help() {
+    ?>
+      <p>The given parameter at <b>reverse sorted</b>
+    <?php
+  }
   public function add_meta_box_content( $post ) {
     // Add a nonce field so we can check for it later.
     wp_nonce_field( 'lite3d_viewer_nonce', 'lite3d_viewer_nonce' );
@@ -218,7 +224,7 @@ class LITE3D_Meta_Box
       </div>
       <div class="row">
         <div class="col-25">
-          <h4 for="lite3d_meta_height">
+          <h4 for="lite3d_meta_controls">
             <?php esc_html_e('Moving Controls', 'lite3d-viewer'); ?>
           </h4>
         </div>
@@ -257,7 +263,7 @@ class LITE3D_Meta_Box
       </div>
       <div class="row">
         <div class="col-25">
-          <h4 for="lite3d_meta_height">
+          <h4 for="lite3d_meta_zoom">
             <?php esc_html_e('Enable Zoom', 'lite3d-viewer'); ?>
           </h4>
         </div>
@@ -292,6 +298,32 @@ class LITE3D_Meta_Box
             ?>
           </div>
           <div class="desc-text"><?php esc_html_e('If you wish to disable zooming behavior please choose No.', 'lite3d-viewer')?></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <h4 for="lite3d_meta_background">
+            <?php esc_html_e('Background Color', 'lite3d-viewer'); ?>
+          </h4>
+        </div>
+        <div class="col-75">
+          <div class="col-flex">
+            <?php
+              echo sprintf(
+                '<input %1$s />',
+                LITE3D_Utility::format_atts( 
+                  array(
+                    'type' => 'text',
+                    'class' => 'lite3d_meta_background',
+                    'id' => 'lite3d_meta_background',
+                    'name' => 'lite3d_meta_background',
+                    'value' => $meta['background'],
+                  ) 
+                )
+              );
+            ?>
+          </div>
+          <div class="desc-text"><?php esc_html_e("Set Background Color For 3d Model.If You don't need just leave blank. Default : 'transparent color'", 'lite3d-viewer')?></div>
         </div>
       </div>
     </div>
@@ -329,13 +361,14 @@ class LITE3D_Meta_Box
     $unit_height    = $_POST['lite3d_meta_height_unit'];
     $controls       = $_POST['lite3d_meta_controls'];
     $zoom           = $_POST['lite3d_meta_zoom'];
+    $background           = $_POST['lite3d_meta_background'];
     $url            = $_POST['lite3d_meta_url'];
     $thumbnail      = sanitize_text_field( $_POST['lite3d_meta_thumbnail'] );
     $id             = sanitize_text_field( $_POST['lite3d_meta_id'] );
     $hash           = sanitize_text_field( $_POST['lite3d_meta_hash'] );
 
     // Set Meta value
-    $lite3d_meta_data = $this->set_meta_value($width, $unit_width, $height,$unit_height, $zoom, $controls, $id, $hash, $url, $thumbnail);
+    $lite3d_meta_data = $this->set_meta_value($width, $unit_width, $height,$unit_height, $background, $zoom, $controls, $id, $hash, $url, $thumbnail);
 
     // Update the meta field in the database.
     update_post_meta( $post_id, '_lite3d_viewer', $lite3d_meta_data );
@@ -343,22 +376,23 @@ class LITE3D_Meta_Box
 
   /** Set Meta value function */
   private function set_meta_value( $width = 100, $unit_width = '%', 
-    $height = 100, $unit_height = 'px', $zoom = 1, $controls = 1, $id = null, $hash = null, $url = null, $thumbnail = null) {
+    $height = 100, $unit_height = 'px', $background = 'transparent', $zoom = 1, $controls = 1, $id = null, $hash = null, $url = null, $thumbnail = null) {
     return array(
-      'lite3d_width' => array(
-        'width'     => $width,
-        'unit'      => $unit_width,
+      'lite3d_width'  => array(
+        'width'       => $width,
+        'unit'        => $unit_width,
       ),
       'lite3d_height' => array(
-        'height' => $height,
-        'unit' => $unit_height,
+        'height'      => $height,
+        'unit'        => $unit_height,
       ),
-      'controls' => $controls,
-      'zoom' => $zoom,
-      'thumbnail' => $thumbnail,
-      'url' => $url,
-      'post_id' => (isset($id)) ? $id : get_the_ID(),
-      'hash' => (isset($hash)) ? $hash : LITE3D_Utility::generate_hash(get_the_ID())
+      'controls'      => $controls,
+      'zoom'          => $zoom,
+      'background'    => $background,
+      'thumbnail'     => $thumbnail,
+      'url'           => $url,
+      'post_id'       => (isset($id)) ? $id : get_the_ID(),
+      'hash'          => (isset($hash)) ? $hash : LITE3D_Utility::generate_hash(get_the_ID())
     ); 
   }
 
