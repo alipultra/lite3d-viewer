@@ -44,7 +44,8 @@ span.shortcode input {
     resize: vertical;
   }
 
-  input[type=number] {
+  input[type=number], 
+  input[type=text] {
     width: 30%;
     padding: 8px;
     border: 1px solid #ccc;
