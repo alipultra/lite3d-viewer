@@ -11,9 +11,11 @@
 ;(function( $, window, document, undefined ) {
   'use strict';
   
-  $.fn.reload_script = function( options ) {
+  $.fn.reload_media_frame = function( options ) {
     var $library; 
     var wp_media_frame;
+
+    
       
     $('#lite3d_meta_upload_button').click(function(e) {
       e.preventDefault();
@@ -47,8 +49,19 @@
     });
   }
 
+  $.fn.reload_color_picker = function() {
+    return this.each( function() {
+      var $input        = $(this);
+      var color = $input.val();
+
+
+      $input.wpColorPicker();
+    });
+  }
+
   $(document).ready( function() {
-    $('.lite3d-meta-form').reload_script();
+    $('.lite3d-meta-form').reload_media_frame();
+    $('.lite3d_meta_background').reload_color_picker();
   });
     
 })( jQuery, window, document );
