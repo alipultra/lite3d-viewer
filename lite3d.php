@@ -8,7 +8,7 @@
  * Author: Alip Putra
  * Author URI: https://alipultra.com
  */
-// If this file is called directly, abort.
+
 if (!defined('ABSPATH')) {
   exit; // Secure the plugin by blocking direct access
 }
@@ -18,8 +18,6 @@ function lite3d_viewer_load_textdomain() {
   load_plugin_textdomain('lite3d-viewer', false, dirname(plugin_basename(__FILE__)) . '/i18n/languages');
 }
 add_action('plugins_loaded', 'lite3d_viewer_load_textdomain');
-
-global $wpdb;
 
 define('LITE3D_PATH', plugin_dir_path(__FILE__));
 define('LITE3D_URL', plugins_url('', __FILE__));
