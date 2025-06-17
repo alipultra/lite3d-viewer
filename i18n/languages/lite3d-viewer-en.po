@@ -1,0 +1,41 @@
+# Copyright (C) 2025 Alip Putra
+# This file is distributed under the same license as the Lite3d Viewer plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Lite3d Viewer 0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/easy3d\n"
+"POT-Creation-Date: 2025-04-25T08:09:06+00:00\n"
+"PO-Revision-Date: 2025-05-07 00:24+0700\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.6\n"
+"X-Domain: lite3d-viewer\n"
+
+#. Plugin Name of the plugin
+#. Description of the plugin
+#: lite3d.php
+msgid "Lite3d Viewer"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: lite3d.php
+msgid "https://github.com/alipultra/lite3d"
+msgstr ""
+
+#. Author of the plugin
+#: lite3d.php
+msgid "Alip Putra"
+msgstr ""
+
+#. Author URI of the plugin
+#: lite3d.php
+msgid "https://alipultra.com"
+msgstr ""
+
+#: admin/lite3d-meta-box.php:44
+msgid "3D Viewer Width"
+msgstr ""
